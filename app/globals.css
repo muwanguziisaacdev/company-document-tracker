@@ -2,20 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(45deg, #a8159c, #15a57c, #4919cd);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
 }
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.cards {
+  @apply flex justify-evenly flex-wrap gap-10;
+}
+
+.cards .card {
+    display: flex;
+    width: 200px;
+    height:200px;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,110,1) 0%, rgba(94,28,153,1) 0%, rgba(58,192,147,1) 45%, rgba(0,212,255,1) 100%);
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-align: center;
+    cursor: pointer;
+}
+  
