@@ -5,8 +5,8 @@ const page = () => {
   return (
     <div className='h-screen'>
         <h1 className='text-4xl text-center font-bold text-white py-4 '>MISSING DOCUMENT TRACKER</h1>
-        <main className='grid place-content-center h-[80vh]'>
-            <div className="cards">
+        <main className='flex flex-wrap'>
+            <div className="cards flex flex-wrap justify-center items-center">
                 <Link href={'/docs/invoices'}><div className="card">INVOICES</div></Link> 
                 <div className="card">CASH ADVANCES</div>
                 <div className="card">CLEARINGS</div>

@@ -2,131 +2,150 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer base {
+  html {
+    @apply text-gray-800 bg-gray-100;
+  }
+  
+  h1 {
+    @apply text-4xl font-bold text-gray-900;
+  }
+  
+  h2 {
+    @apply text-3xl font-semibold text-gray-900;
+  }
+  
+  h3 {
+    @apply text-2xl font-semibold text-gray-800;
+  }
+  
+  p {
+    @apply text-base text-gray-700 leading-relaxed;
+  }
+}
+
 :root {
-  --BGINPUT: rgba(20, 111, 230, 0.3);
-  --BTNBACKGROUND1: linear-gradient(145deg, rgb(35, 204, 136) 0%, rgb(142, 207, 53) 100%);
-  --BTNBACKGROUND2: linear-gradient(145deg, rgb(255, 79, 88) 0%, rgb(255, 180, 0) 100%);
-  box-shadow: 0px 4px 6px 0px rgba(255, 114, 58, 0.36);;
+  /* 
+
+  */
+
+   /*BACKGROUND & ACCENTS  */
+  --BODYBGCOLOR: #ECF0F1;
+  --SOFTGRAY: #BDC3C7;
+
+/* SECONDARY COLORS (HIGHLISTS & ACTIONS) */
+  --EMERALDGREEN: #2ECC71;
+  --AMBERORANGE: #F39C12;
+  --CRIMSONRED: #E74C3C;
+
+
+  /* PRIMARY COLORS */
+  --DEEPBLUE: #7F8C8D;
+  --STEELGRAY: #2C3E50;
+
+/* TYPOGRAPHY & TEXT */
+--HEADING: #2C3E50;
+--PARAGRAPHTEXT: #4D5D67;
+--SECONDARYTEXT: #7F8C8D;
+
+/* BUTTONS & ACTIONS */
+--PRIMARYBTNBG: #2980B9;
+--PRIMARYBTNFG: #FFFFFF;
+--SECONDARYBTNBG: #BDC3C7;
+--SECONDARYBTNFG: #2C3E50;
+--SUCCESSBTNBG: #2ECC71;
+--SUCCESSBTNFG: #FFFFFF;
+--WARNINGBTNBG: #F39C12;
+--WARNINGBTNFG: #FFFFFF;
+--DANGERBTNBG: #E74C3C;
+--DANGERBTNFG: #FFFFFF;
+
+/* BACKGROUNDS & CARDS */
+--CARDBGMAIN: #ECF0F1;
+--CARDSECTIONBG: #F7F9F9;
+--BORDERSDIVIDERS: #D5DBDB;
+
 }
 body {
   margin: 0;
   height: 100vh;
-  background: linear-gradient(45deg, #a8159c, #15a57c, #4919cd);
-  background-size: 400% 400%;
-  animation: gradientBG 10s ease infinite;
+  background: var(--BODYBGCOLOR);
 }
 
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+aside {
+  @apply bg-gray-100 text-gray-800
 }
 
-.thmb {
+.cards{
+  @apply flex gap-4 mt-8;
+}
+.cards .card {
+  @apply w-[300px] h-[200px] rounded-lg shadow-lg flex justify-center items-center text-center;
+  background: var(--CARDBGMAIN);
 
 }
-.thmb-2 {
-  background: var(--BTNBACKGROUND2)
+
+/* table {
+  @apply mt-10;
+  width: 87%;
+  border-collapse: collapse;
+}
+/* table, th, td {
+  border: 1px solid var(--BORDERSDIVIDERS);
+} */
+
+
+.footer svg { cursor: pointer; }
+.footer svg:first-child { fill: var(--EMERALDGREEN); }
+.footer svg:last-child { fill: var(--DANGERBTNBG); }
+
+.missing-table {
+  width: 80%;
+  margin-top: 50px;
+}
+.missing-table th, td {
+  width: 20%;
+}
+.missing-table th{
+  background: var(--CRIMSONRED);
+  padding: 1rem;
+  text-align: left;
+  margin-bottom: 40px;
+  font-size: 1.3rem;
+}
+th, td {
+
+} 
+td:first-child {
+  padding-left: 15px;
+
 }
 
-.inputs label {
-    @apply text-white font-medium text-[18px] ;
- 
+
+tr:nth-child(even) {
+  background-color: var(--SOFTGRAY);
+}
+
+.card-container {
+  @apply flex justify-center items-center text-xl font-medium rounded-lg shadow-lg cursor-pointer;
+  width: 300px;
+  height: 200px;
+  background: whitesmoke;
+  transition: 400ms all;
+}
+.card-container:hover {
+  scale: 1.2;
 }
 .range-number {
-  @apply w-1/4 mt-10 flex flex-col justify-center;
+  @apply flex flex-col justify-evenly p-4
 }
 .range-number input {
-    @apply w-4/5 rounded-md h-10 outline-none text-gray-700 text-xl p-4 mt-5;
-    background: var(--BGINPUT);
-}
-.cards {
-  @apply flex justify-evenly flex-wrap gap-10;
+  @apply p-4 rounded-md text-gray-500 text-xl  mt-5
 }
 
-.cards .card {
-    display: flex;
-    width: 200px;
-    height:200px;
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,110,1) 0%, rgba(94,28,153,1) 0%, rgba(58,192,147,1) 45%, rgba(0,212,255,1) 100%);
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 900;
-    text-align: center;
-    cursor: pointer;
-}
-
-
-
-/* upload directory code */
-
-/* From Uiverse.io by Yaya12085 */ 
-.container {
-  height: 300px;
-  width: 600px;
-  border-radius: 10px;
-  box-shadow: 4px 4px 30px rgba(0, 0, 0, .2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  gap: 5px;
-  background-color: rgba(0, 110, 255, 0.041);
-}
-
-.header {
-  flex: 1;
-  width: 100%;
-  border: 2px dashed royalblue;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.header svg {
-  height: 100px;
-}
-
-.header p {
-  text-align: center;
-  color: white;
-}
-
-.footer {
-  background-color: rgba(0, 110, 255, 0.075);
-  width: 100%;
-  height: 40px;
-  padding: 8px;
-  border-radius: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  color: white;
-  border: none;
-}
-
-.footer svg {
-  height: 130%;
-  fill: royalblue;
-  background-color: rgba(70, 66, 66, 0.103);
-  border-radius: 50%;
-  padding: 2px;
-  cursor: pointer;
-  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.205);
-}
-
-.footer p {
-  flex: 1;
-  text-align: center;
-}
-
-#file {
-  display: none;
+.container svg {
+  height: 50px;
+  fill: rgb(82, 82, 82);
+  margin-bottom: 20px;
 }
