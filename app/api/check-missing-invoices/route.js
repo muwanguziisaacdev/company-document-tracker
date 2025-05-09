@@ -14,7 +14,7 @@ export async function POST(req) {
     const invoiceNumbers = files
       .filter((file) => file.endsWith('.pdf')) // Only process PDF files
       .map((file) => {
-        const match = file.match(/INV 2025-SI-(\d{4})/);
+        const match = file.match(/INV 2025-(\d{4})/);
         return match ? parseInt(match[1], 10) : null;
       })
       .filter((num) => num !== null);
